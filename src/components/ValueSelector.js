@@ -11,6 +11,7 @@ class ValueSelector extends Component {
             parameterName: props.parameterName,
             maxValue: maxValue,
             values: values,
+            colors: ["#FCBD7E", "#0F0F0F"]
         }
     }
     onChange = (values) => {
@@ -23,7 +24,18 @@ class ValueSelector extends Component {
         return (<div>
             <code>{this.props.displayName} is {this.state.values[0]}</code>
 
-            <MultiSlider values={this.state.values} onChange={this.onChange} />
+            <MultiSlider
+                values={this.state.values}
+                onChange={this.onChange}
+                height={20}
+                trackSize={5}
+                handleSize={8}
+                handleInnerDotSize={2}
+                colors={this.state.colors}
+                bg={"#0F0F0F"}
+
+            />
+
         </div>);
     }
 }

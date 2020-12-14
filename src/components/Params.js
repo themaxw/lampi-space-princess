@@ -42,6 +42,7 @@ class Params extends Component {
                                     maxValue={element.max}
                                     stepSize={stepSize}
                                     url={this.props.url}
+                                    height={20}
                                 />
                             )
                         } else if (element.type === "value") {
@@ -54,9 +55,12 @@ class Params extends Component {
                                     maxValue={element.max}
                                     stepSize={stepSize}
                                     url={this.props.url}
+                                    height={20}
                                 />
 
                             )
+                        } else {
+                            return (<div></div>)
                         }
                     })}
                 </div>
