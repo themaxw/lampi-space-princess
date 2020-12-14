@@ -9,7 +9,7 @@ function App() {
   let state = "ambiLight"
   return (
     <div className="App">
-      <header className="Lampi Light Princess">
+      <header className="Lampi Space Princess">
         <h1>
           Lampi Light Princess
         </h1>
