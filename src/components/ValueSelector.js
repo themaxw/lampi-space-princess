@@ -16,8 +16,9 @@ class ValueSelector extends Component {
     }
     onChange = (values) => {
         this.setState({ values: values })
-        data[this.state.parameterName] = { current: values[0] }
-        axios.put(this.props.url + "/params", data)
+        var data = {};
+        data[this.state.parameterName] = { current: values[0] };
+        axios.put(this.props.url + "/params", data);
     }
     render() {
         return (<div>

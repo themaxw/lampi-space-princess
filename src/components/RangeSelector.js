@@ -35,9 +35,9 @@ class RangeSelector extends Component {
         var data = {}
         var parameterName = this.state.parameterName
 
-        var min = values[0] * this.state.stepSize;
-        var max = (values[0] + values[1]) * this.state.stepSize;
-        data[parameterName] = { min: min, max: max }
+        var lower = values[0] * this.state.stepSize;
+        var upper = (values[0] + values[1]) * this.state.stepSize;
+        data[parameterName] = { lower: lower, upper: upper }
 
         axios.put(this.props.url + "/params", data)
     }
