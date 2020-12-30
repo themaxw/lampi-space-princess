@@ -14,15 +14,19 @@ class Params extends Component {
     }
     componentDidMount = () => {
         console.log("url: " + this.props.url)
-        axios.get(this.props.url + "/ui").then((resp) => {
+        axios.get(this.props.url + "/mode").then((resp) => {
+            this.setState({ url: this.props.url + "/" + resp.data.activeMode });
+            axios.get(this.state.url + "/ui").then((resp) => {
 
-            this.setState({
-                elements: resp.data.elements,
-                mounted: true,
-            });
-        }, (resp) => {
-            console.log("loading failed: " + resp)
+                this.setState({
+                    elements: resp.data.elements,
+                    mounted: true,
+                });
+            }, (resp) => {
+                console.log("loading failed: " + resp)
+            })
         })
+
     }
 
     render() {
@@ -41,7 +45,7 @@ class Params extends Component {
                                     upper={element.upper}
                                     maxValue={element.max}
                                     stepSize={stepSize}
-                                    url={this.props.url}
+                                    url={this.state.url}
                                     height={20}
                                 />
                             )
@@ -54,7 +58,7 @@ class Params extends Component {
                                     current={element.current}
                                     maxValue={element.max}
                                     stepSize={stepSize}
-                                    url={this.props.url}
+                                    url={this.state.url}
                                     height={20}
                                 />
 
