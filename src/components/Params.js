@@ -15,8 +15,9 @@ class Params extends Component {
     componentDidMount = () => {
         console.log("url: " + this.props.url)
         axios.get(this.props.url + "/mode").then((resp) => {
-            this.setState({ url: this.props.url + "/" + resp.data.activeMode });
-            axios.get(this.state.url + "/ui").then((resp) => {
+            var newUrl = this.props.url + "/" + resp.data.activeMode
+            this.setState({ url:  newUrl});
+            axios.get(newUrl + "/ui").then((resp) => {
 
                 this.setState({
                     elements: resp.data.elements,
